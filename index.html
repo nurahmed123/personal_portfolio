@@ -1558,6 +1558,98 @@ body:before {
 /* =====================================================
    MENTORING / INTRO CALL
    ===================================================== */
+/* MENTORING PROMO */
+.mentor-promo{
+    display:grid;
+    grid-template-columns:.88fr 1.12fr;
+    gap:54px;
+    align-items:center;
+}
+.mentor-promo-copy{
+    max-width:620px;
+}
+.mentor-promo-copy .title{
+    max-width:600px;
+    margin-bottom:18px;
+}
+.mentor-promo-copy .sub{
+    max-width:540px;
+}
+.mentor-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:25px;
+}
+.mentor-tags span{
+    padding:8px 11px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    background:rgba(255,255,255,.58);
+    color:#34453b;
+    font-size:11px;
+    font-weight:600;
+}
+.mentor-promo-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:24px;
+    padding:34px 36px;
+    box-shadow:var(--shadow);
+}
+.mentor-promo-card h3{
+    margin:0 0 12px;
+    font:600 30px/1.08 var(--display);
+    letter-spacing:-.035em;
+}
+.mentor-promo-card>p:not(.mentor-kicker){
+    margin:0;
+    max-width:620px;
+    color:var(--slate);
+    font-size:14px;
+    line-height:1.65;
+}
+.mentor-promo-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 22px;
+    margin:22px 0 25px;
+    font-size:12px;
+    font-weight:700;
+}
+.mentor-promo-meta span::before{
+    content:'✓';
+    color:var(--signal);
+    margin-right:7px;
+}
+.mentor-cta{
+    width:100%;
+    min-height:58px;
+    padding:16px 22px;
+    border-radius:14px;
+    font-size:15px;
+    font-weight:700;
+    box-shadow:0 10px 25px rgba(47,111,82,.18);
+}
+.mentor-cta strong{
+    font-size:18px;
+}
+.mentor-promo-note{
+    display:block;
+    margin-top:12px;
+    text-align:center;
+    color:var(--slate);
+    font-size:11px;
+}
+@media(max-width:900px){
+    .mentor-promo{grid-template-columns:1fr;gap:30px}
+}
+@media(max-width:600px){
+    .mentor-promo-card{padding:25px 20px}
+    .mentor-promo-card h3{font-size:25px}
+    .mentor-cta{min-height:54px}
+}
+
 .mentor{
     background:linear-gradient(135deg,#eef5f0 0%,#fafaf8 48%,#eef2ed 100%);
 }
@@ -2466,106 +2558,31 @@ body:before {
     </div>
    </section>
    <section class="section mentor" id="mentoring">
-    <div class="wrap">
-     <div class="mentor-intro-head reveal">
-      <p class="eyebrow">07 · Get started</p>
-      <h2 class="title">Request an intro call</h2>
+    <div class="wrap mentor-promo">
+     <div class="mentor-promo-copy reveal">
+      <p class="eyebrow">07 · Conrad Challenge Mentoring</p>
+      <h2 class="title">Got a Conrad project?
+       <br/>Let’s make it stronger.</h2>
       <p class="sub">
-       1:1 guidance for Conrad Challenge teams — starting with a free 30-minute conversation.
+       Focused 1:1 mentoring for teams who want sharper ideas, stronger pitches and practical feedback.
       </p>
-     </div>
-
-     <div class="mentor-grid">
-      <div class="mentor-side reveal">
-       <div class="mentor-glance">
-        <p class="mentor-kicker">At a glance</p>
-        <div class="glance-row"><span>Format</span><strong>1:1 video call</strong></div>
-        <div class="glance-row"><span>Session length</span><strong>30 min</strong></div>
-        <div class="glance-row"><span>Scheduling</span><strong>Choose an available time</strong></div>
-        <div class="glance-row"><span>Cost</span><strong>Free intro call</strong></div>
-        <p class="glance-note">
-         Anything beyond the intro call is discussed afterward, based on what you actually need.
-        </p>
-       </div>
-
-       <div class="mentor-copy">
-        <p>
-         This is for Conrad Challenge teams who want a second pair of eyes on their project, strategy, pitch or competition preparation.
-        </p>
-        <ul class="mentor-benefits">
-         <li><span>✓</span> A focused 30-minute introductory call</li>
-         <li><span>✓</span> A clear read on where you're stuck and what to focus on next</li>
-         <li><span>✓</span> An honest assessment of whether ongoing mentoring makes sense</li>
-         <li><span>✓</span> A clear next step after the conversation</li>
-        </ul>
-       </div>
-      </div>
-
-      <div class="mentor-card reveal d1">
-       <div class="mentor-form-head">
-        <p class="mentor-kicker">Introductory session</p>
-        <h3>Tell me about your Conrad Challenge team.</h3>
-        <p>I’ll review these details before the call so I can decide whether I’m the right mentor for your team and make the conversation useful from minute one.</p>
-       </div>
-
-       <form class="mentor-form" id="mentoringForm">
-        <div class="field">
-         <label for="mentorName">Name</label>
-         <input id="mentorName" name="name" placeholder="Your name" required/>
-        </div>
-        <div class="field">
-         <label for="mentorEmail">Email</label>
-         <input id="mentorEmail" name="email" placeholder="you@example.com" required type="email"/>
-        </div>
-        <div class="field">
-         <label for="mentorTeamName">Team name</label>
-         <input id="mentorTeamName" name="team_name" placeholder="Your Conrad Challenge team name" required/>
-        </div>
-        <div class="field">
-         <label for="mentorProject">Project title</label>
-         <input id="mentorProject" name="project_title" placeholder="Your project name" required/>
-        </div>
-        <input type="hidden" name="competition" value="Conrad Challenge"/>
-        <div class="field full">
-         <label for="mentorCover">Tell me about your project and what you need help with</label>
-         <textarea id="mentorCover" name="message" placeholder="Briefly describe what you're building, where you are right now, and what you'd like feedback or guidance on." required></textarea>
-        </div>
-        <div class="field full">
-         <label for="mentorLink">Project / portfolio link <span>(optional)</span></label>
-         <input id="mentorLink" name="project_link" placeholder="https://..."/>
-        </div>
-        <button class="btn btn-primary full mentor-submit" type="submit">Submit &amp; schedule intro call ↗</button>
-        <p class="mentor-form-note full">
-         I’ll review your request first. If it looks like a good fit, you’ll be taken to the scheduling page to choose an available time.
-        </p>
-        <span class="status full" id="mentoringStatus" aria-live="polite"></span>
-       </form>
+      <div class="mentor-tags">
+       <span>Project feedback</span>
+       <span>Pitch &amp; presentation</span>
+       <span>Competition preparation</span>
       </div>
      </div>
 
-     <div class="mentor-faq reveal">
-      <div class="faq-intro">
-       <p class="mentor-kicker">Before you request</p>
-       <h3>What happens next?</h3>
+     <div class="mentor-promo-card reveal d1">
+      <p class="mentor-kicker">Conrad Challenge · 1:1</p>
+      <h3>Ready to take your project seriously?</h3>
+      <p>Send a short request. If it looks like a good fit, we’ll start with a free 30-minute introductory call.</p>
+      <div class="mentor-promo-meta">
+       <span>Paid mentorship</span>
+       <span>Financial aid available</span>
       </div>
-      <div class="faq-list">
-       <details open>
-        <summary>What happens on the intro call?</summary>
-        <p>We spend 30 minutes going through what you're building, where you're stuck, what you've already tried, and whether ongoing mentoring makes sense for your goals.</p>
-       </details>
-       <details>
-        <summary>Who is this mentoring for?</summary>
-        <p>For Conrad Challenge teams looking for practical feedback on their project, strategy, technical direction, pitch or competition preparation. I’ll review your request first to decide whether I’m a good fit for your team.</p>
-       </details>
-       <details>
-        <summary>Is there a cost?</summary>
-        <p>The 30-minute introductory call is free. If you need ongoing mentoring afterward, we can discuss the scope and terms based on what you actually need.</p>
-       </details>
-       <details>
-        <summary>What happens after I submit the form?</summary>
-        <p>I’ll receive your information and review it. You’ll then be taken to the scheduling page, where you can choose one of the available times and receive the meeting details.</p>
-       </details>
-      </div>
+      <a class="btn btn-primary mentor-cta" href="/mentoring/">Request mentoring <strong>↗</strong></a>
+      <small class="mentor-promo-note">No long application. Just tell me what you’re building.</small>
      </div>
     </div>
    </section>
@@ -3838,16 +3855,19 @@ document.getElementById('contactForm').addEventListener('submit', e => {
     );
 });
 
-document.getElementById('mentoringForm').addEventListener('submit', e => {
-    e.preventDefault();
-    submitForm(
-        e.currentTarget,
-        FORM_ENDPOINTS.mentoring,
-        document.getElementById('mentoringStatus'),
-        'Request saved. Opening Calendly so you can choose an available time…',
-        CALENDLY_URL
-    );
-});
+const mentoringForm = document.getElementById('mentoringForm');
+if (mentoringForm) {
+    mentoringForm.addEventListener('submit', e => {
+        e.preventDefault();
+        submitForm(
+            e.currentTarget,
+            FORM_ENDPOINTS.mentoring,
+            document.getElementById('mentoringStatus'),
+            'Request saved. Opening Calendly so you can choose an available time…',
+            CALENDLY_URL
+        );
+    });
+}
 </script>
  </body>
 </html>
