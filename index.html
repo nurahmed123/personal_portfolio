@@ -512,57 +512,37 @@ img {
     place-items:center;
     color:var(--signal)
 }
-/* MOMENTS */
+/* MOMENTS — natural masonry collage */
 .moments {
-    display:grid;
-    grid-template-columns:repeat(12,1fr);
-    grid-auto-rows:175px;
-    gap:14px
+    columns:3 280px;
+    column-gap:14px;
+    width:100%;
 }
 .moment {
     position:relative;
+    display:block;
+    width:100%;
+    min-width:0;
+    margin:0 0 14px;
     overflow:hidden;
-    border-radius:14px;
+    break-inside:avoid;
+    border-radius:16px;
     background:var(--paper2);
-    border:1px solid var(--line)
-}
-.moment:nth-child(1) {
-    grid-column:span 5;
-    grid-row:span 2
-}
-.moment:nth-child(2) {
-    grid-column:span 3;
-    grid-row:span 2
-}
-.moment:nth-child(3) {
-    grid-column:span 4;
-    grid-row:span 2
-}
-.moment:nth-child(4) {
-    grid-column:span 4
-}
-.moment:nth-child(5) {
-    grid-column:span 3
-}
-.moment:nth-child(6) {
-    grid-column:span 5
-}
-/* The final three photos need a larger frame so their original compositions have room.
-   Earlier photos keep the same grid system and will crop naturally to match. */
-.moment:nth-child(7),
-.moment:nth-child(8),
-.moment:nth-child(9) {
-    grid-column:span 4;
-    grid-row:span 2;
+    border:1px solid var(--line);
+    box-shadow:0 8px 24px rgba(20,23,27,.04);
 }
 .moment img {
+    display:block;
     width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:.7s var(--ease)
+    height:auto;
+    max-height:none;
+    object-fit:contain;
+    background:var(--paper2);
+    transition:transform .7s var(--ease),filter .7s var(--ease);
 }
 .moment:hover img {
-    transform:scale(1.07)
+    transform:scale(1.025);
+    filter:saturate(1.04);
 }
 .moment-label {
     position:absolute;
@@ -1554,319 +1534,6 @@ body:before {
 .news-preview-fallback strong {
     font:600 25px var(--display)
 }
-
-/* =====================================================
-   MENTORING / INTRO CALL
-   ===================================================== */
-/* MENTORING PROMO */
-.mentor-promo{
-    display:grid;
-    grid-template-columns:.88fr 1.12fr;
-    gap:54px;
-    align-items:center;
-}
-.mentor-promo-copy{
-    max-width:620px;
-}
-.mentor-promo-copy .title{
-    max-width:600px;
-    margin-bottom:18px;
-}
-.mentor-promo-copy .sub{
-    max-width:540px;
-}
-.mentor-tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-top:25px;
-}
-.mentor-tags span{
-    padding:8px 11px;
-    border:1px solid var(--line);
-    border-radius:999px;
-    background:rgba(255,255,255,.58);
-    color:#34453b;
-    font-size:11px;
-    font-weight:600;
-}
-.mentor-promo-card{
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:24px;
-    padding:34px 36px;
-    box-shadow:var(--shadow);
-}
-.mentor-promo-card h3{
-    margin:0 0 12px;
-    font:600 30px/1.08 var(--display);
-    letter-spacing:-.035em;
-}
-.mentor-promo-card>p:not(.mentor-kicker){
-    margin:0;
-    max-width:620px;
-    color:var(--slate);
-    font-size:14px;
-    line-height:1.65;
-}
-.mentor-promo-meta{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px 22px;
-    margin:22px 0 25px;
-    font-size:12px;
-    font-weight:700;
-}
-.mentor-promo-meta span::before{
-    content:'✓';
-    color:var(--signal);
-    margin-right:7px;
-}
-.mentor-cta{
-    width:100%;
-    min-height:58px;
-    padding:16px 22px;
-    border-radius:14px;
-    font-size:15px;
-    font-weight:700;
-    box-shadow:0 10px 25px rgba(47,111,82,.18);
-}
-.mentor-cta strong{
-    font-size:18px;
-}
-.mentor-promo-note{
-    display:block;
-    margin-top:12px;
-    text-align:center;
-    color:var(--slate);
-    font-size:11px;
-}
-@media(max-width:900px){
-    .mentor-promo{grid-template-columns:1fr;gap:30px}
-}
-@media(max-width:600px){
-    .mentor-promo-card{padding:25px 20px}
-    .mentor-promo-card h3{font-size:25px}
-    .mentor-cta{min-height:54px}
-}
-
-.mentor{
-    background:linear-gradient(135deg,#eef5f0 0%,#fafaf8 48%,#eef2ed 100%);
-}
-.field-static {
-    min-height:52px;
-    box-sizing:border-box;
-    border:1px solid var(--line);
-    border-radius:12px;
-    padding:15px 16px;
-    background:var(--paper2);
-    color:var(--ink);
-    display:flex;
-    align-items:center;
-    font-weight:600;
-}
-.mentor-intro-head{
-    max-width:760px;
-    margin-bottom:42px;
-}
-.mentor-intro-head .sub{
-    margin-top:18px;
-    max-width:620px;
-}
-.mentor-grid{
-    display:grid;
-    grid-template-columns:.82fr 1.18fr;
-    gap:42px;
-    align-items:start;
-}
-.mentor-side{
-    display:grid;
-    gap:28px;
-}
-.mentor-glance{
-    background:rgba(255,255,255,.88);
-    border:1px solid var(--line);
-    border-radius:18px;
-    padding:22px 24px;
-}
-.mentor-kicker{
-    margin:0 0 13px;
-    font:10px var(--mono);
-    color:var(--signal);
-    letter-spacing:.14em;
-    text-transform:uppercase;
-}
-.glance-row{
-    display:flex;
-    justify-content:space-between;
-    gap:20px;
-    padding:14px 0;
-    border-bottom:1px solid var(--line);
-    font-size:14px;
-}
-.glance-row span{color:var(--slate);}
-.glance-row strong{text-align:right;font-weight:600;}
-.glance-note{
-    margin:17px 0 0;
-    color:var(--slate);
-    font-size:13px;
-    line-height:1.6;
-}
-.mentor-copy{padding:0 3px;}
-.mentor-copy>p{
-    margin:0;
-    color:var(--slate);
-    font-size:15px;
-    line-height:1.7;
-}
-.mentor-benefits{
-    list-style:none;
-    padding:0;
-    margin:20px 0 0;
-    display:grid;
-    gap:12px;
-}
-.mentor-benefits li{
-    display:flex;
-    gap:10px;
-    align-items:flex-start;
-    font-size:13px;
-    color:#34453b;
-}
-.mentor-benefits li span{color:var(--signal);font-weight:700;}
-.mentor-card{
-    background:white;
-    border:1px solid var(--line);
-    border-radius:22px;
-    padding:26px;
-    box-shadow:var(--shadow);
-}
-.mentor-form-head{
-    padding-bottom:20px;
-    margin-bottom:20px;
-    border-bottom:1px solid var(--line);
-}
-.mentor-form-head h3{
-    margin:0 0 7px;
-    font:600 28px/1.1 var(--display);
-    letter-spacing:-.03em;
-}
-.mentor-form-head p:last-child{
-    margin:0;
-    color:var(--slate);
-    font-size:13px;
-}
-.mentor-form{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:16px 14px;
-}
-.field{min-width:0;}
-.field label{
-    display:block;
-    margin:0 0 7px;
-    font-size:11px;
-    font-weight:700;
-    color:var(--ink);
-}
-.field label span{color:var(--slate);font-weight:500;}
-.mentor-form textarea,.mentor-form input,.mentor-form select{
-    width:100%;
-    padding:13px 14px;
-    border:1px solid var(--line);
-    border-radius:10px;
-    background:#fff;
-    color:var(--ink);
-    outline:none;
-    font:13px var(--body);
-    transition:.25s ease;
-}
-.mentor-form textarea{
-    min-height:128px;
-    resize:vertical;
-}
-.mentor-form .short-textarea{min-height:92px;}
-.mentor-form input::placeholder,.mentor-form textarea::placeholder{color:#9aa2a8;}
-.mentor-form input:focus,.mentor-form textarea:focus,.mentor-form select:focus{
-    border-color:var(--signal);
-    box-shadow:0 0 0 4px rgba(47,111,82,.08);
-}
-.mentor-submit{margin-top:3px;}
-.mentor-form-note{
-    margin:0;
-    color:var(--slate);
-    font-size:11px;
-    line-height:1.55;
-}
-.mentor-faq{
-    margin-top:54px;
-    display:grid;
-    grid-template-columns:.72fr 1.28fr;
-    gap:55px;
-    padding-top:38px;
-    border-top:1px solid var(--line);
-}
-.faq-intro h3{
-    margin:0;
-    font:600 30px/1.05 var(--display);
-    letter-spacing:-.035em;
-}
-.faq-list{border-top:1px solid var(--line);}
-.faq-list details{border-bottom:1px solid var(--line);}
-.faq-list summary{
-    list-style:none;
-    cursor:pointer;
-    padding:18px 28px 18px 0;
-    position:relative;
-    font-size:14px;
-    font-weight:700;
-}
-.faq-list summary::-webkit-details-marker{display:none;}
-.faq-list summary:after{
-    content:'+';
-    position:absolute;
-    right:2px;
-    top:15px;
-    color:var(--slate);
-    font:18px var(--body);
-    transition:.2s ease;
-}
-.faq-list details[open] summary:after{content:'−';color:var(--signal);}
-.faq-list details p{
-    margin:0 30px 18px 0;
-    color:var(--slate);
-    font-size:13px;
-    line-height:1.65;
-}
-
-/* CONTACT */
-.contact-note{
-    margin-top:30px;
-    padding-top:18px;
-    border-top:1px solid rgba(255,255,255,.12);
-    max-width:430px;
-}
-.contact-note span{
-    display:block;
-    margin-bottom:7px;
-    font:10px var(--mono);
-    color:#9ad0ae;
-    letter-spacing:.12em;
-}
-.contact-note strong{
-    display:block;
-    font:500 16px/1.4 var(--display);
-    color:#e8eee9;
-}
-.contact-fields{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-}
-.contact .field label{color:#fff;}
-.contact .field label span{color:#9aa2a8;}
-.contact .form input,.contact .form textarea{font:13px var(--body);}
-
 .mentor {
     background:linear-gradient(120deg,#e8f1eb 0%,#fafaf8 50%,#edf0ea 100%)
 }
@@ -2094,17 +1761,12 @@ body:before {
         grid-column:span 12!important
     }
     .moments {
-        grid-auto-rows:145px
+        columns:2 180px;
+        column-gap:10px;
     }
     .moment {
-        grid-column:span 6!important;
-        grid-row:span 1!important
-    }
-    .moment:nth-child(7),
-    .moment:nth-child(8),
-    .moment:nth-child(9) {
-        grid-column:span 6!important;
-        grid-row:span 2!important;
+        margin-bottom:10px;
+        border-radius:13px;
     }
     .journey:before {
         left:7px
@@ -2284,20 +1946,6 @@ body:before {
     .moment-iframe-modal {
         height:330px;
     }
-}
-
-
-@media(max-width:950px){
-    .mentor-grid{grid-template-columns:1fr;}
-    .mentor-faq{grid-template-columns:1fr;gap:25px;}
-}
-@media(max-width:650px){
-    .mentor-card{padding:18px;}
-    .mentor-form,.contact-fields{grid-template-columns:1fr;}
-    .field.full,.mentor-form .full{grid-column:auto;}
-    .mentor-faq{margin-top:40px;padding-top:30px;}
-    .glance-row{align-items:flex-start;}
-    .glance-row strong{max-width:55%;}
 }
 
 </style>
@@ -2558,69 +2206,87 @@ body:before {
     </div>
    </section>
    <section class="section mentor" id="mentoring">
-    <div class="wrap mentor-promo">
-     <div class="mentor-promo-copy reveal">
-      <p class="eyebrow">07 · Conrad Challenge Mentoring</p>
-      <h2 class="title">Got a Conrad project?
-       <br/>Let’s make it stronger.</h2>
-      <p class="sub">
-       Focused 1:1 mentoring for teams who want sharper ideas, stronger pitches and practical feedback.
+    <div class="wrap mentor-grid">
+     <div class="reveal">
+      <p class="eyebrow">
+       07 · Conrad Challenge Mentoring
       </p>
-      <div class="mentor-tags">
-       <span>Project feedback</span>
-       <span>Pitch &amp; presentation</span>
-       <span>Competition preparation</span>
+      <h2 class="title">
+       Building for Conrad? Let's make your project stronger.
+      </h2>
+      <p class="sub">
+       Practical, project-focused mentoring for Conrad Challenge teams — from shaping the idea and improving the technical direction to refining the pitch and preparing for the competition.
+      </p>
+      <div class="mentor-meta">
+       <div>
+        <b>
+         What I help with
+        </b>
+        <span>
+         Project development · Technical direction · Pitch & presentation · Competition strategy
+        </span>
+       </div>
+       <div>
+        <b>
+         How it starts
+        </b>
+        <span>
+         Submit a short request first. If it looks like a good fit, book a free introductory call at a time that works for you.
+        </span>
+       </div>
       </div>
+      <a class="btn btn-primary" href="/mentoring/" style="margin-top:25px;display:inline-flex;">
+       Explore Conrad mentoring ↗
+      </a>
      </div>
-
-     <div class="mentor-promo-card reveal d1">
-      <p class="mentor-kicker">Conrad Challenge · 1:1</p>
-      <h3>Ready to take your project seriously?</h3>
-      <p>Send a short request. If it looks like a good fit, we’ll start with a free 30-minute introductory call.</p>
-      <div class="mentor-promo-meta">
-       <span>Paid mentorship</span>
-       <span>Financial aid available</span>
+     <div class="mentor-card reveal d1">
+      <div style="display:grid;gap:18px;">
+       <p class="eyebrow" style="margin:0;">
+        1:1 · Conrad Challenge
+       </p>
+       <h3 style="font:600 30px var(--display);margin:0;line-height:1.05;">
+        Your project deserves more than generic advice.
+       </h3>
+       <p style="color:var(--slate);margin:0;line-height:1.7;">
+        Get an outside perspective from someone who has been through the Conrad Challenge journey and understands the pressure of turning a student idea into a strong competition project.
+       </p>
+       <div style="display:grid;gap:10px;margin-top:4px;">
+        <div>✓ Focused project feedback</div>
+        <div>✓ Pitch and presentation guidance</div>
+        <div>✓ Practical competition preparation</div>
+        <div>✓ Financial aid available for eligible teams</div>
+       </div>
+       <a class="btn btn-ghost" href="/mentoring/">
+        See how mentoring works →
+       </a>
       </div>
-      <a class="btn btn-primary mentor-cta" href="/mentoring/">Request mentoring <strong>↗</strong></a>
-      <small class="mentor-promo-note">No long application. Just tell me what you’re building.</small>
      </div>
     </div>
    </section>
    <section class="section contact" id="contact">
     <div class="wrap contact-grid">
      <div class="reveal">
-      <p class="eyebrow">08 · Contact</p>
-      <h2 class="title">Have something to talk with me?</h2>
-      <p class="sub">
-       For collaborations, partnerships, questions or an interesting problem — send me the details and I'll get back to you.
+      <p class="eyebrow">
+       08 · Contact
       </p>
-      <div class="contact-note">
-       <span>DIRECT MESSAGE</span>
-       <strong>Your message will come directly to me, and I’ll get back to you.</strong>
-      </div>
+      <h2 class="title">
+       Have something to talk with me?
+      </h2>
+      <p class="sub">
+       For collaborations, partnerships or an interesting problem — send me the details and it will be prepared as an email to me.
+      </p>
      </div>
      <form class="form reveal d1" id="contactForm">
-      <div class="contact-fields">
-       <div class="field">
-        <label for="contactName">Name</label>
-        <input id="contactName" name="name" placeholder="Your name" required/>
-       </div>
-       <div class="field">
-        <label for="contactEmail">Email</label>
-        <input id="contactEmail" name="email" placeholder="you@example.com" required type="email"/>
-       </div>
-      </div>
-      <div class="field">
-       <label for="contactPhone">Phone / WhatsApp <span>(optional)</span></label>
-       <input id="contactPhone" name="phone" placeholder="Your number"/>
-      </div>
-      <div class="field">
-       <label for="contactMessage">Message</label>
-       <textarea id="contactMessage" name="message" placeholder="Tell me what's on your mind..." required></textarea>
-      </div>
-      <input type="hidden" name="_subject" value="Portfolio contact — Mahdi Bin Ferdaus"/>
-      <button class="btn btn-primary" type="submit">Send message ↗</button>
-      <span class="status" id="formStatus" aria-live="polite"></span>
+      <input name="name" placeholder="Your name" required=""/>
+      <input name="email" placeholder="Email address" required="" type="email"/>
+      <input name="Number" placeholder="Mobile Number" required="" type="number"/>
+      <textarea name="message" placeholder="Tell me what's on your mind..." required="">
+</textarea>
+      <button class="btn btn-primary" type="submit">
+       Send message ↗
+      </button>
+      <span class="status" id="formStatus">
+      </span>
      </form>
     </div>
    </section>
@@ -2666,11 +2332,11 @@ body:before {
    - Add photos under /images/ and put their filenames in DATA below.
    ===================================================== */
 const FORM_ENDPOINTS = {
-  contact: 'https://formspree.io/f/mvkpbzpo',
-  mentoring: 'https://formspree.io/f/xqpzdavw'
+  mentoring: 'https://formspree.io/f/xqpzdavw' // Add the separate form endpoint you will use for Conrad mentoring.
 };
 
-const CALENDLY_URL = 'https://calendly.com/ibnemahdi5/30min';
+// Put your email address here. Contact messages will open a prepared email with all form details.
+const CONTACT_EMAIL = 'ibnemahdi5@gmail.com';
 
 const DATA={
     stats:[
@@ -2715,7 +2381,7 @@ const DATA={
                 'The Ending Ceremory',
                 'Our Full Group at Ending Ceremony'
             ],
-            body:'',
+            body:'The Conrad Challenge chapter can hold the complete story: how Team Exo Max formed, how Smart Road Safety Beast evolved, the feedback and iterations, the international-final experience, and what the journey taught me.',
             facts:[
                 [
                     'Project',
@@ -2739,6 +2405,10 @@ const DATA={
                     'Official Conrad Challenge',
                     'Official website',
                     'https://conrad.spacecenter.org/'
+                ],
+                [
+                    'Certificate',
+                    ''
                 ],
                 [
                     'Podcast',
@@ -2830,7 +2500,7 @@ const DATA={
                 'We are preparing for Tree Plantation',
                 'Tree Plantation happening'
             ],
-            body:'',
+            body:'A dedicated IOCE story can include the preparation, Bangladesh delegation, international experience, presentation, award moment and the climate/environment work behind it.',
             facts:[
                 [
                     'Event',
@@ -2852,7 +2522,7 @@ const DATA={
             links:[
                 [
                     'Official event',
-                    '',
+                    'Add official website',
                     'https://ioce.siriusolymp.ru/'
                 ],
                 [
@@ -2911,7 +2581,7 @@ const DATA={
                 '',
                 ''
             ],
-            body:'',
+            body:'Explore the BMIE Challenge, the autonomous saliva collector project, the bronze medal experience and related media coverage here.',
             facts:[
                 [
                     'Project',
@@ -2933,7 +2603,7 @@ const DATA={
             links:[
                 [
                     'Competition website',
-                    '',
+                    'Add official website',
                     'https://bmie-challenge.com/2026/'
                 ],
                 [
@@ -2960,7 +2630,7 @@ const DATA={
                 '',
                 ''
             ],
-            body:'',
+            body:'Explore the Emerging Innovators programme, the recognition process and related media coverage here.',
             facts:[
                 [
                     'Recognition',
@@ -2982,7 +2652,7 @@ const DATA={
             links:[
                 [
                     'Official award page',
-                    '',
+                    'Add official website',
                     'https://emerginginnovatorawards.org/'
                 ],
                 [
@@ -3011,7 +2681,7 @@ const DATA={
                 '',
                 ''
             ],
-            body:'',
+            body:'Explore the Springboard programme, the youth innovation work, the finalist experience and related media coverage here.',
             facts:[
                 [
                     'Programme',
@@ -3074,12 +2744,12 @@ const DATA={
             desc:'Selected to join a competitive global academic programme.',
             image:'images/Achivements/YYGS/logo.jpg',
             gallery:[
-                'images/Achivements/YYGS/01.jpg'
+                'images/Achivements/YYGS/01.webp'
             ],
             galleryStories:[
                 ''
             ],
-            body:'',
+            body:'Explore the Yale Young Global Scholars programme here.',
             facts:[
                 [
                     'Programme',
@@ -3157,7 +2827,7 @@ const DATA={
             name:'Smart Road Safety Beast',
             tag:'Safety · IoT',
             desc:'Real-time road-hazard detection and response system.',
-            image:'images/road-safety.jpg',
+            image:'',
             body:'A road-safety system combining sensor-based hazard detection with automated emergency response, built to cut down on accidents and wasted fuel.',
             facts:[
                 [
@@ -3182,7 +2852,7 @@ const DATA={
             name:'AI Wildfire Prediction Device',
             tag:'IoT · ML',
             desc:'Environmental sensing plus machine learning for early wildfire warnings.',
-            image:'images/wildfire.jpg',
+            image:'',
             body:'Combines environmental sensors with a machine-learning model to flag wildfire risk and push early alerts before a fire spreads.',
             facts:[
                 [
@@ -3207,7 +2877,7 @@ const DATA={
             name:'Gas Leakage & Fire Safety',
             tag:'Arduino · Safety',
             desc:'Automatic detection, isolation and emergency alerts.',
-            image:'images/gas-safety.jpg',
+            image:'',
             body:'Detects gas leaks, smoke and air-quality issues, then automatically cuts gas supply, disconnects power and sends an emergency alert.',
             facts:[
                 [
@@ -3232,7 +2902,7 @@ const DATA={
             name:'Overlord Prevention Circuit',
             tag:'Electronics · Bluetooth',
             desc:'Short-circuit prevention and live current monitoring.',
-            image:'images/overlord.jpg',
+            image:'',
             body:'Watches live current draw and automatically shuts off power when it detects an overload or short, with Bluetooth-based alerts.',
             facts:[
                 [
@@ -3257,7 +2927,7 @@ const DATA={
             name:'Home Automation Through IoT',
             tag:'ESP32 · Blynk',
             desc:'Smart-home controller for lights, fans and appliances.',
-            image:'images/home-iot.jpg',
+            image:'',
             body:'Connects lights and fans to a mobile app, TV remote or manual switch over Wi-Fi using an ESP32 and Blynk.',
             facts:[
                 [
@@ -3282,7 +2952,7 @@ const DATA={
             name:'RC Drone',
             tag:'FPV · Betaflight',
             desc:'5-inch FPV racing build tuned for responsive flight.',
-            image:'images/drone.jpg',
+            image:'',
             body:'A racing drone built around a SpeedyBee F405 V3 flight controller, tuned on Betaflight and flown with a RadioMaster ELRS radio system.',
             facts:[
                 [
@@ -3307,7 +2977,7 @@ const DATA={
             name:'RC Aircraft',
             tag:'RC · Aerodynamics',
             desc:'F-22-inspired radio-controlled model built for agile maneuvers.',
-            image:'images/aircraft.jpg',
+            image:'',
             body:'A radio-controlled model built for speed and agile maneuvers, with a brushless motor setup and a FlySky transmitter.',
             facts:[
                 [
@@ -3332,7 +3002,7 @@ const DATA={
             name:'Soccer Bot',
             tag:'Robotics · Competition',
             desc:'Competition robot purpose-built for RoboSoccer play.',
-            image:'images/soccer-bot.jpg',
+            image:'',
             body:'A robot purpose-built for RoboSoccer competition play.',
             facts:[
                 [
@@ -3358,55 +3028,55 @@ const DATA={
         {
             image:'images/Moment/01.jpg',
             title:'A Moment In Space Center Houston raising Bangladeshi Flag For The First Time',
-            story:'',
+            story:'Write the short story behind this moment here.',
             iframe:''
         },
         {
             image:'images/Moment/02.jpg',
             title:'The Prime Ministers Program',
-            story:'',
+            story:'Write who was there, what happened and why this moment matters.',
             iframe:''
         },
         {
             image:'images/Moment/03.jpg',
             title:'A moment between builds',
-            story:'',
+            story:'Write the story of what you were building or testing.',
             iframe:''
         },
         {
             image:'images/Moment/04.jpg',
             title:'Teaching Senior Students',
-            story:'',
+            story:'Write the story behind this presentation or event.',
             iframe:''
         },
         {
             image:'images/Moment/05.jpg',
             title:'Drone Workshop Students of NSU',
-            story:'',
+            story:'Write what you learned or built during this workshop.',
             iframe:''
         },
         {
             image:'images/Moment/06.jpg',
             title:'Noble neiturate Proffesor Mohammad Yunus',
-            story:'',
+            story:'Write the personal story behind this photograph.',
             iframe:''
         },
          {
             image:'images/Moment/07.jpg',
             title:'Its judgement time',
-            story:'',
+            story:'Write the personal story behind this photograph.',
             iframe:''
         },
         {
             image:'images/Moment/08.jpg',
             title:'Leading My Team',
-            story:'',
+            story:'Write the personal story behind this photograph.',
             iframe:''
         },
         {
             image:'images/Moment/09.jpg',
             title:'US Embassy Featuring Us',
-            story:'',
+            story:'Optional short note about why this coverage matters.',
             iframe:''
         }
     ],
@@ -3588,7 +3258,7 @@ const DATA={
 ;
 function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
 function imageTag(src,label,cls=''){return `<img class="${cls}" src="${src}" alt="${esc(label)}" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><div class="fallback" style="display:none">${esc((label||'MF').slice(0,2).toUpperCase())}</div>`}
-function linkButton(item){const label=item[0]||'Link';const url=item.length>=3?item[2]:item[1];const note=item.length>=3?item[1]:'Open link';return url?`<a class="resource" href="${esc(url)}" target="_blank" rel="noopener"><div><strong>${esc(label)}</strong><small>${esc(note||'Open link')}</small></div><span>↗</span></a>`:`<div class="resource" style="opacity:.65;cursor:default"><div><strong>${esc(label)}</strong><small>${esc(note||'')}</small></div><span>＋</span></div>`}
+function linkButton(item){const label=item[0]||'Link';const url=item.length>=3?item[2]:item[1];const note=item.length>=3?item[1]:'Open link';return url?`<a class="resource" href="${esc(url)}" target="_blank" rel="noopener"><div><strong>${esc(label)}</strong><small>${esc(note||'Open link')}</small></div><span>↗</span></a>`:`<div class="resource" style="opacity:.65;cursor:default"><div><strong>${esc(label)}</strong><small>${esc(note||'Add URL in the DATA object')}</small></div><span>＋</span></div>`}
 function facts(f){return `<div class="facts">${f.map(x=>`<div class="fact"><b>${esc(x[0])}</b><span>${esc(x[1])}</span></div>`).join('')}</div>`}
 function gallery(images, label, stories) {
     const valid = images || [];
@@ -3634,7 +3304,7 @@ function openImage(src, label, story) {
         `
             <img class="modal-hero" src="${esc(src)}" alt="${esc(label)}">
             <h2>${esc(label)}</h2>
-            <p>${esc(story || '')}</p>
+            <p>${esc(story || 'Add the short story for this photograph in the achievement galleryStories array.')}</p>
         `
     );
 }
@@ -3697,13 +3367,9 @@ function openAchievement(i) {
 
 function openProject(i) {
     const p = DATA.projects[i];
-
-    // Project links/resources intentionally left out for now.
-    // Add the project gallery, demo video, build notes and GitHub/code links here later.
-
     showModal(
         'Project · ' + p.tag,
-        `${imageTag(p.image,p.name,'modal-hero')}<h2>${esc(p.name)}</h2><p>${esc(p.body)}</p>${facts(p.facts)}`
+        `${imageTag(p.image,p.name,'modal-hero')}<h2>${esc(p.name)}</h2><p>${esc(p.body)}</p>${facts(p.facts)}${resources('Explore this project',[['Project gallery',''],['Demo video',''],['Build notes',''],['GitHub / code','']])}`
     );
 }
 
@@ -3735,7 +3401,7 @@ function openMoment(i) {
 
 function openExperience(i) {
     const e=DATA.experience[i];
-    showModal('Experience · '+e.org,`${imageTag(e.image,e.org,'modal-hero')}<h2>${esc(e.role)}</h2><p><strong>${esc(e.org)}</strong> · ${esc(e.period)}</p><p>${esc(e.detail)}</p>${resources('Explore the institution & experience',e.links)}${resources('Add more evidence here',[['Working photos',''],['Project / impact page',''],['Certificate / letter',''],['Related news','']])}`)
+    showModal('Experience · '+e.org,`${imageTag(e.image,e.org,'modal-hero')}<h2>${esc(e.role)}</h2><p><strong>${esc(e.org)}</strong> · ${esc(e.period)}</p><p>${esc(e.detail)}</p>`)
 }
 function render(){
  document.getElementById('statsGrid').innerHTML=DATA.stats.map((s,i)=>`<div class="stat reveal d${i}"><b data-count="${parseInt(s[0])||0}">${esc(s[0])}</b><span>${esc(s[1])}</span></div>`).join('');
@@ -3743,7 +3409,7 @@ function render(){
  document.getElementById('projectGrid').innerHTML=DATA.projects.map((p,i)=>`<button class="project reveal d${i%4}" onclick="openProject(${i})"><div class="project-photo">${imageTag(p.image,p.name)}</div><div class="project-body"><small>${esc(p.tag)}</small><h3>${esc(p.name)}</h3><p>${esc(p.desc)}</p></div><span class="project-arrow">↗</span></button>`).join('');
  document.getElementById('momentsGrid').innerHTML=DATA.moments.map((m,i)=>m.iframe ? `<div class="moment moment-embed reveal d${i%4}"><iframe src="${esc(m.iframe)}" title="${esc(m.title)}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><span class="moment-label always">${esc(m.title)}</span></div>` : `<button class="moment reveal d${i%4}" onclick="openMoment(${i})">${imageTag(m.image,m.title)}<span class="moment-label">${esc(m.title)} ↗</span></button>`).join('');
 
- document.getElementById('experienceGrid').innerHTML=DATA.experience.map((e,i)=>`<button class="experience-card reveal d${i%4}" onclick="openExperience(${i})"><div class="experience-photo">${imageTag(e.image,e.org)}</div><div class="experience-main"><small>${esc(e.period)}</small><h3>${esc(e.role)}</h3><div class="experience-org">${esc(e.org)}</div><p>${esc(e.detail)}</p><div class="experience-links"><span class="text-link">View experience ↗</span></div></div></button>`).join('');
+ document.getElementById('experienceGrid').innerHTML=DATA.experience.map((e,i)=>`<button class="experience-card reveal d${i%4}" onclick="openExperience(${i})"><div class="experience-photo">${imageTag(e.image,e.org)}</div><div class="experience-main"><small>${esc(e.period)}</small><h3>${esc(e.role)}</h3><div class="experience-org">${esc(e.org)}</div><p>${esc(e.detail)}</p></div></button>`).join('');
  document.getElementById('skillsGrid').innerHTML=DATA.skills.map(s=>`<div class="skill-box reveal"><h3>${esc(s[0])}</h3>${s.slice(1).map(x=>`<span class="pill">${esc(x)}</span>`).join('')}</div>`).join('');
 }
 
@@ -3803,11 +3469,22 @@ window.addEventListener('scroll',()=>{const hero=document.querySelector('.hero-p
 // Lightweight 3D tilt on pointer-capable screens.
 if(matchMedia('(pointer:fine)').matches){document.querySelectorAll('.achievement,.project,.experience-card,.news-card').forEach(card=>{card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform=`perspective(900px) rotateX(${y*-2}deg) rotateY(${x*2}deg) translateY(-8px) scale(1.008)`});card.addEventListener('pointerleave',()=>card.style.transform='')})}
 
-async function submitForm(form, endpoint, statusEl, successText, redirectUrl='') {
+async function submitForm(
+    form,
+    endpoint,
+    statusEl,
+    successText
+) {
+    if (!endpoint) {
+        statusEl.textContent =
+            'The form is live on the website. Add your Formspree endpoint '
+            + 'in FORM_ENDPOINTS at the top of the script to receive submissions.';
+        return;
+    }
+
     const button = form.querySelector('button[type=submit]');
     button.disabled = true;
     button.textContent = 'Sending…';
-    statusEl.textContent = '';
 
     try {
         const response = await fetch(endpoint, {
@@ -3824,46 +3501,40 @@ async function submitForm(form, endpoint, statusEl, successText, redirectUrl='')
 
         form.reset();
         statusEl.textContent = successText;
-
-        if (redirectUrl) {
-            setTimeout(() => {
-                window.location.href = redirectUrl;
-            }, 450);
-        }
     } catch (error) {
         statusEl.textContent =
-            'Something went wrong. Please try again. Your information was not submitted.';
+            'Something went wrong. Please try again or use the social links below.';
     } finally {
         button.disabled = false;
-        button.textContent = form.id === 'mentoringForm'
-            ? 'Submit & schedule intro call ↗'
+        button.textContent = successText.includes('mentoring')
+            ? 'Request a mentoring conversation ↗'
             : 'Send message ↗';
     }
 }
-
 document.getElementById('contactForm').addEventListener('submit', e => {
     e.preventDefault();
-    submitForm(
-        e.currentTarget,
-        FORM_ENDPOINTS.contact,
-        document.getElementById('formStatus'),
-        'Message sent successfully. Thank you — I’ll get back to you soon.'
-    );
-});
 
-const mentoringForm = document.getElementById('mentoringForm');
-if (mentoringForm) {
-    mentoringForm.addEventListener('submit', e => {
-        e.preventDefault();
-        submitForm(
-            e.currentTarget,
-            FORM_ENDPOINTS.mentoring,
-            document.getElementById('mentoringStatus'),
-            'Request saved. Opening Calendly so you can choose an available time…',
-            CALENDLY_URL
-        );
-    });
-}
-</script>
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const status = document.getElementById('formStatus');
+
+    if (!CONTACT_EMAIL || CONTACT_EMAIL.includes('YOUR_EMAIL')) {
+        status.textContent = 'Add your email address to CONTACT_EMAIL near the top of the script first.';
+        return;
+    }
+
+    const subject = encodeURIComponent('Portfolio contact from ' + (data.get('name') || 'Website visitor'));
+    const body = encodeURIComponent(
+        'Name: ' + (data.get('name') || '') + '\\n' +
+        'Email: ' + (data.get('email') || '') + '\\n' +
+        'Mobile: ' + (data.get('Number') || '') + '\\n\\n' +
+        'Message:\\n' + (data.get('message') || '')
+    );
+
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    status.textContent = 'Your email app should now open with the message prepared.';
+});
+document.getElementById('mentoringForm').addEventListener('submit',e=>{e.preventDefault();submitForm(e.currentTarget,FORM_ENDPOINTS.mentoring,document.getElementById('mentoringStatus'),'Your mentoring request was sent successfully.');});
+  </script>
  </body>
 </html>
