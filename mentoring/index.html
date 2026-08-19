@@ -1,34 +1,491 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Conrad Challenge mentoring by Mahdi Bin Ferdaus — practical project, technical, pitch and competition guidance for student teams.">
-<title>Conrad Challenge Mentoring · Mahdi Bin Ferdaus</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{--ink:#18201b;--slate:#657067;--signal:#2f6f52;--signal2:#1f553d;--paper:#f8faf7;--paper2:#eef3ee;--line:#d9e1da;--white:#fff;--shadow:0 24px 70px rgba(27,45,35,.10)}
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="Conrad Challenge mentoring by Mahdi Bin Ferdaus &mdash; practical project, technical, pitch and competition guidance for student teams." name="description"/>
+  <title>
+   Conrad Challenge Mentoring &middot; Mahdi Bin Ferdaus
+  </title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   :root{--ink:#18201b;--slate:#657067;--signal:#2f6f52;--signal2:#1f553d;--paper:#f8faf7;--paper2:#eef3ee;--line:#d9e1da;--white:#fff;--shadow:0 24px 70px rgba(27,45,35,.10)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",sans-serif;line-height:1.6}.wrap{width:min(1120px,calc(100% - 36px));margin:auto}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{font-family:"Space Grotesk";font-weight:700;color:var(--ink);text-decoration:none}.nav a:not(.brand){color:var(--slate);text-decoration:none;font-size:14px}.hero{padding:92px 0 75px;background:radial-gradient(circle at 80% 20%,#dcebe0 0,transparent 38%),linear-gradient(135deg,#f8faf7,#edf4ee)}.eyebrow{font:700 11px/1.2 monospace;letter-spacing:.13em;text-transform:uppercase;color:var(--signal);margin:0 0 17px}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center}.hero h1{font:700 clamp(48px,7vw,82px)/.96 "Space Grotesk";letter-spacing:-.055em;margin:0 0 25px}.hero h1 span{color:var(--signal)}.hero p{font-size:18px;color:var(--slate);max-width:700px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;border:1px solid var(--line);cursor:pointer}.btn-primary{background:var(--signal);color:white;border-color:var(--signal)}.btn-primary:hover{background:var(--signal2)}.btn-ghost{color:var(--ink);background:white}.hero-card{background:white;border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:var(--shadow)}.hero-card strong{font:600 28px "Space Grotesk";display:block;margin-bottom:18px}.mini-list{display:grid;gap:12px}.mini-list div{padding:12px 0;border-top:1px solid var(--line)}.mini-list b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.08em}.mini-list span{color:var(--slate);font-size:14px}.section{padding:82px 0}.section.alt{background:var(--paper2)}.section-head{max-width:750px;margin-bottom:38px}.section h2{font:600 clamp(34px,5vw,56px)/1.02 "Space Grotesk";letter-spacing:-.04em;margin:0 0 18px}.section-head p:not(.eyebrow){color:var(--slate);font-size:17px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:white;border:1px solid var(--line);border-radius:18px;padding:25px}.card .num{font:700 11px monospace;color:var(--signal)}.card h3{font:600 22px "Space Grotesk";margin:12px 0 8px}.card p{color:var(--slate);font-size:14px;margin:0}.process{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.step{border-top:2px solid var(--signal);padding:18px 4px}.step b{font:700 12px monospace;color:var(--signal)}.step h3{font:600 20px "Space Grotesk";margin:10px 0 5px}.step p{color:var(--slate);font-size:14px;margin:0}.price{display:grid;grid-template-columns:1fr .8fr;gap:30px;align-items:stretch}.price-card{background:var(--ink);color:white;border-radius:22px;padding:34px}.price-card h3{font:600 30px "Space Grotesk";margin:0 0 12px}.price-card p{color:#c6d0c9}.aid{background:white;border:1px solid var(--line);border-radius:22px;padding:34px}.aid h3{font:600 27px "Space Grotesk";margin:0 0 12px}.aid p{color:var(--slate)}.form-wrap{display:grid;grid-template-columns:.75fr 1.25fr;gap:50px;align-items:start}.form-copy p{color:var(--slate)}.form-card{background:white;border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:var(--shadow)}.form{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:grid;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:12px;font-weight:700}.field input,.field textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:13px 14px;font:14px "DM Sans";color:var(--ink);outline:none;background:#fff}.field input:focus,.field textarea:focus{border-color:var(--signal);box-shadow:0 0 0 4px rgba(47,111,82,.08)}.field textarea{min-height:150px;resize:vertical}.note{font-size:12px;color:var(--slate);margin:0}.status{font-size:13px;color:var(--signal);min-height:20px}.faq{display:grid;grid-template-columns:.7fr 1.3fr;gap:50px}.faq h2{font-size:40px}.faq-list details{border-top:1px solid var(--line);padding:18px 0}.faq-list summary{font-weight:700;cursor:pointer}.faq-list p{color:var(--slate);font-size:14px;max-width:750px}.back{padding:30px 0}.back a{color:var(--slate);text-decoration:none;font-size:14px}@media(max-width:850px){.hero-grid,.price,.form-wrap,.faq{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.process{grid-template-columns:1fr 1fr}.hero{padding-top:60px}}@media(max-width:600px){.form{grid-template-columns:1fr}.field.full{grid-column:auto}.process{grid-template-columns:1fr}.hero h1{font-size:52px}.section{padding:65px 0}.wrap{width:min(100% - 28px,1120px)}}
-</style>
-</head>
-<body>
-<header><div class="wrap nav"><a class="brand" href="/">Mahdi Bin Ferdaus</a><a href="/">← Back to portfolio</a></div></header>
-<main>
-<section class="hero"><div class="wrap hero-grid"><div><p class="eyebrow">Conrad Challenge · 1:1 Mentoring</p><h1>Turn a good idea into a <span>stronger project.</span></h1><p>Practical mentoring for Conrad Challenge teams that want sharper project direction, stronger storytelling, better presentations and a more prepared competition strategy.</p><div class="actions"><a class="btn btn-primary" href="#request">Request an intro call ↗</a><a class="btn btn-ghost" href="#how">See how it works</a></div></div><div class="hero-card"><p class="eyebrow">At a glance</p><strong>Focused. Practical. Team-specific.</strong><div class="mini-list"><div><b>Who it's for</b><span>Conrad Challenge students and teams</span></div><div><b>Intro call</b><span>30 minutes · Free</span></div><div><b>Mentoring</b><span>Paid ongoing mentorship after the intro</span></div><div><b>Financial aid</b><span>Available for eligible teams</span></div></div></div></div></section>
-<section class="section"><div class="wrap"><div class="section-head"><p class="eyebrow">What I can help with</p><h2>Not generic advice. Your actual project.</h2><p>Mentoring is centered on the work your team is doing right now — what is weak, what is unclear, what could be stronger, and what you should focus on next.</p></div><div class="cards"><article class="card"><span class="num">01</span><h3>Project development</h3><p>Stress-test the idea, refine the problem and solution, improve feasibility, and turn scattered work into a clearer project.</p></article><article class="card"><span class="num">02</span><h3>Pitch & storytelling</h3><p>Make the project easier to understand, sharpen the story, improve slides and practice communicating the value of the work.</p></article><article class="card"><span class="num">03</span><h3>Competition strategy</h3><p>Prepare for milestones, judge questions, presentations and the practical decisions that matter when competing.</p></article></div></div></section>
-<section class="section alt" id="how"><div class="wrap"><div class="section-head"><p class="eyebrow">Simple process</p><h2>Four steps. No back-and-forth chaos.</h2></div><div class="process"><div class="step"><b>01</b><h3>Tell me about it</h3><p>Send a short request with your team and project details.</p></div><div class="step"><b>02</b><h3>I review</h3><p>I look at the request and decide whether I can genuinely help.</p></div><div class="step"><b>03</b><h3>Book your call</h3><p>If it looks like a fit, choose an available time for the free intro call.</p></div><div class="step"><b>04</b><h3>Decide together</h3><p>After the intro, we can discuss ongoing paid mentorship if it makes sense.</p></div></div></div></section>
-<section class="section"><div class="wrap price"><div class="price-card"><p class="eyebrow" style="color:#9ad0ae">Mentorship</p><h3>Paid ongoing mentoring</h3><p>The introductory call is free. If your team wants continued support, we can discuss a paid mentorship arrangement based on the scope and level of support you actually need.</p></div><div class="aid"><p class="eyebrow">Access matters</p><h3>Financial aid available</h3><p>I don't want cost to automatically stop a strong student team from getting useful guidance. Financial aid is available for eligible teams; mention your situation in the request and we can discuss it.</p></div></div></section>
-<section class="section alt" id="request"><div class="wrap form-wrap"><div class="form-copy"><p class="eyebrow">Start here</p><h2>Request an introductory meeting.</h2><p>Keep it short. I mainly need enough context to understand your team, your project and where you want help.</p><p>After you submit the request, you will be taken to the scheduling page to choose a time that fits your availability.</p></div><div class="form-card"><form class="form" id="mentoringForm"><div class="field"><label for="name">Name</label><input id="name" name="name" placeholder="Your name" required></div><div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@example.com" required></div><div class="field"><label for="team">Team name</label><input id="team" name="team_name" placeholder="Your Conrad Challenge team" required></div><div class="field"><label for="project">Project title</label><input id="project" name="project_title" placeholder="Your project" required></div><input type="hidden" name="competition" value="Conrad Challenge"><div class="field full"><label for="message">Tell me about your project and what you need help with</label><textarea id="message" name="message" placeholder="What are you building, where are you right now, and what would you like help with?" required></textarea></div><div class="field full"><label for="link">Project / portfolio link <span>(optional)</span></label><input id="link" name="project_link" placeholder="https://..."></div><button class="btn btn-primary full" type="submit">Send request & continue to booking ↗</button><p class="note full">I’ll review your request first. If it looks like a good fit, you can choose an available time for the free introductory call.</p><div class="status full" id="status" aria-live="polite"></div></form></div></div></section>
-<section class="section"><div class="wrap faq"><div><p class="eyebrow">Questions</p><h2>A few things worth knowing.</h2></div><div class="faq-list"><details open><summary>Is the introductory call free?</summary><p>Yes. The first 30-minute introductory conversation is free.</p></details><details><summary>Is ongoing mentoring paid?</summary><p>Yes. Continued mentorship after the introductory call is paid, with the scope and terms discussed based on your team's needs.</p></details><details><summary>Is financial aid available?</summary><p>Yes. Financial aid is available for eligible teams. Mention your situation in the request so it can be considered.</p></details><details><summary>Do I have to commit to mentoring after the intro call?</summary><p>No. The introductory conversation is also a chance for both sides to decide whether working together makes sense.</p></details><details><summary>What if I need help with something other than Conrad Challenge?</summary><p>This page is specifically for Conrad Challenge mentoring. For other requests, please use the contact section on the main portfolio.</p></details></div></div></section>
-</main>
-<script>
-const FORM_ENDPOINT='https://formspree.io/f/xqpzdavw';
-const CALENDLY='https://calendly.com/ibnemahdi5/30min';
-const form=document.getElementById('mentoringForm');
-const status=document.getElementById('status');
-form.addEventListener('submit',async e=>{e.preventDefault();const btn=form.querySelector('button');btn.disabled=true;btn.textContent='Sending…';status.textContent='';try{const r=await fetch(FORM_ENDPOINT,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});if(!r.ok)throw new Error('Request failed');form.reset();status.textContent='Request sent. Opening the booking page…';setTimeout(()=>{window.location.href=CALENDLY},500)}catch(err){status.textContent='Something went wrong. Please try again.';btn.disabled=false;btn.textContent='Send request & continue to booking ↗'}});
-</script>
-</body>
+
+
+/* Mentoring request form additions */
+.form-copy .callout {
+    margin-top: 24px;
+    padding: 20px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+}
+
+.form-copy .callout strong {
+    display: block;
+    font-family: "Space Grotesk";
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.form-copy .callout p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.field label span {
+    color: var(--slate);
+    font-weight: 400;
+}
+
+.field-help {
+    color: var(--slate);
+    font-size: 12px;
+    margin: 0;
+}
+
+.submit-button {
+    width: 100%;
+    min-height: 54px;
+    border-radius: 12px;
+    font-size: 15px;
+}
+  </style>
+ </head>
+ <body>
+  <header>
+   <div class="wrap nav">
+    <a class="brand" href="/">
+     Mahdi Bin Ferdaus
+    </a>
+    <a href="/">
+     &larr; Back to portfolio
+    </a>
+   </div>
+  </header>
+  <main>
+   <section class="hero">
+    <div class="wrap hero-grid">
+     <div>
+      <p class="eyebrow">
+       Conrad Challenge &middot; 1:1 Mentoring
+      </p>
+      <h1>
+       Turn a good idea into a
+       <span>
+        stronger project.
+       </span>
+      </h1>
+      <p>
+       Practical mentoring for Conrad Challenge teams that want sharper project direction, stronger storytelling, better presentations and a more prepared competition strategy.
+      </p>
+      <div class="actions">
+       <a class="btn btn-primary" href="#request">
+        Request an intro call &nearrow;
+       </a>
+       <a class="btn btn-ghost" href="#how">
+        See how it works
+       </a>
+      </div>
+     </div>
+     <div class="hero-card">
+      <p class="eyebrow">
+       At a glance
+      </p>
+      <strong>
+       Focused. Practical. Team-specific.
+      </strong>
+      <div class="mini-list">
+       <div>
+        <b>
+         Who it's for
+        </b>
+        <span>
+         Conrad Challenge students and teams
+        </span>
+       </div>
+       <div>
+        <b>
+         Intro call
+        </b>
+        <span>
+         30 minutes &middot; Free
+        </span>
+       </div>
+       <div>
+        <b>
+         Mentoring
+        </b>
+        <span>
+         Paid ongoing mentorship after the intro
+        </span>
+       </div>
+       <div>
+        <b>
+         Financial aid
+        </b>
+        <span>
+         Available for eligible teams
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="section">
+    <div class="wrap">
+     <div class="section-head">
+      <p class="eyebrow">
+       What I can help with
+      </p>
+      <h2>
+       Not generic advice. Your actual project.
+      </h2>
+      <p>
+       Mentoring is centered on the work your team is doing right now &mdash; what is weak, what is unclear, what could be stronger, and what you should focus on next.
+      </p>
+     </div>
+     <div class="cards">
+      <article class="card">
+       <span class="num">
+        01
+       </span>
+       <h3>
+        Project development
+       </h3>
+       <p>
+        Stress-test the idea, refine the problem and solution, improve feasibility, and turn scattered work into a clearer project.
+       </p>
+      </article>
+      <article class="card">
+       <span class="num">
+        02
+       </span>
+       <h3>
+        Pitch &amp; storytelling
+       </h3>
+       <p>
+        Make the project easier to understand, sharpen the story, improve slides and practice communicating the value of the work.
+       </p>
+      </article>
+      <article class="card">
+       <span class="num">
+        03
+       </span>
+       <h3>
+        Competition strategy
+       </h3>
+       <p>
+        Prepare for milestones, judge questions, presentations and the practical decisions that matter when competing.
+       </p>
+      </article>
+     </div>
+    </div>
+   </section>
+   <section class="section alt" id="how">
+    <div class="wrap">
+     <div class="section-head">
+      <p class="eyebrow">
+       Simple process
+      </p>
+      <h2>
+       Four steps. No back-and-forth chaos.
+      </h2>
+     </div>
+     <div class="process">
+      <div class="step">
+       <b>
+        01
+       </b>
+       <h3>
+        Tell me about it
+       </h3>
+       <p>
+        Send a short request with your team and project details.
+       </p>
+      </div>
+      <div class="step">
+       <b>
+        02
+       </b>
+       <h3>
+        I review
+       </h3>
+       <p>
+        I look at the request and decide whether I can genuinely help.
+       </p>
+      </div>
+      <div class="step">
+       <b>
+        03
+       </b>
+       <h3>
+        Book your call
+       </h3>
+       <p>
+        If it looks like a fit, choose an available time for the free intro call.
+       </p>
+      </div>
+      <div class="step">
+       <b>
+        04
+       </b>
+       <h3>
+        Decide together
+       </h3>
+       <p>
+        After the intro, we can discuss ongoing paid mentorship if it makes sense.
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="section">
+    <div class="wrap price">
+     <div class="price-card">
+      <p class="eyebrow" style="color:#9ad0ae">
+       Mentorship
+      </p>
+      <h3>
+       Paid ongoing mentoring
+      </h3>
+      <p>
+       The introductory call is free. If your team wants continued support, we can discuss a paid mentorship arrangement based on the scope and level of support you actually need.
+      </p>
+     </div>
+     <div class="aid">
+      <p class="eyebrow">
+       Access matters
+      </p>
+      <h3>
+       Financial aid available
+      </h3>
+      <p>
+       I don't want cost to automatically stop a strong student team from getting useful guidance. Financial aid is available for eligible teams; mention your situation in the request and we can discuss it.
+      </p>
+     </div>
+    </div>
+   </section>
+   <section class="section alt" id="request">
+    <div class="wrap form-wrap">
+     <div class="form-copy">
+      <p class="eyebrow">
+       Start here
+      </p>
+      <h2>
+       Request an introductory meeting.
+      </h2>
+      <p>
+       Keep it short. I mainly need enough context to understand who you are, what you're working on and where you want help.
+      </p>
+      <p>
+       After you submit the request, you'll be able to choose a time for the free introductory call.
+      </p>
+      <div class="callout">
+       <strong>
+        Don't have a team or project yet?
+       </strong>
+       <p>
+        That's completely fine. You can still request an intro call if you're looking for teammates, exploring an idea, or simply want to understand whether the Conrad Challenge is right for you.
+       </p>
+      </div>
+     </div>
+     <div class="form-card">
+      <form class="form" id="mentoringForm">
+       <div class="field">
+        <label for="name">
+         Name
+        </label>
+        <input id="name" name="name" placeholder="Your name" required="" type="text"/>
+       </div>
+       <div class="field">
+        <label for="email">
+         Email
+        </label>
+        <input id="email" name="email" placeholder="you@example.com" required="" type="email"/>
+       </div>
+       <div class="field">
+        <label for="mobile">
+         Mobile / WhatsApp
+        </label>
+        <input id="mobile" name="mobile" placeholder="+880 1XXXXXXXXX" required="" type="tel"/>
+       </div>
+       <div class="field">
+        <label for="reference">
+         Reference
+         <span>
+          (optional)
+         </span>
+        </label>
+        <input id="reference" name="reference" placeholder="Who referred you?" type="text"/>
+       </div>
+       <div class="field">
+        <label for="team">
+         Team name
+         <span>
+          (optional)
+         </span>
+        </label>
+        <input id="team" name="team_name" placeholder="Your Conrad Challenge team" type="text"/>
+        <p class="field-help">
+         Don't have a team yet? Leave this blank.
+        </p>
+       </div>
+       <div class="field">
+        <label for="project">
+         Project / idea
+         <span>
+          (optional)
+         </span>
+        </label>
+        <input id="project" name="project_title" placeholder="Project name or idea" type="text"/>
+        <p class="field-help">
+         No project yet? That's okay too.
+        </p>
+       </div>
+       <input name="competition" type="hidden" value="Conrad Challenge"/>
+       <div class="field full">
+        <label for="message">
+        Describe your project, what are you working on, what you're stuck on, or what you'd like to discuss.
+        </label>
+        <textarea id="message" name="message" placeholder="Briefly tell me what you're working on, what you're stuck on, or what you'd like to discuss." required=""></textarea>
+       </div>
+       <div class="field full">
+        <label for="link">
+         Project / portfolio link
+         <span>
+          (optional)
+         </span>
+        </label>
+        <input id="link" name="project_link" placeholder="https://..." type="url"/>
+       </div>
+       <button class="btn btn-primary submit-button full" type="submit">
+        Send request &amp; continue to booking &nearrow;
+       </button>
+       <p class="note full">
+        I'll review your request first. If it looks like a good fit, you'll be taken to the booking page to choose an available time for the free introductory call.
+       </p>
+       <div aria-live="polite" class="status full" id="status">
+       </div>
+      </form>
+     </div>
+    </div>
+   </section>
+   <section class="section">
+    <div class="wrap faq">
+     <div>
+      <p class="eyebrow">
+       Questions
+      </p>
+      <h2>
+       A few things worth knowing.
+      </h2>
+     </div>
+     <div class="faq-list">
+      <details open="">
+       <summary>
+        Is the introductory call free?
+       </summary>
+       <p>
+        Yes. The first 30-minute introductory conversation is free.
+       </p>
+      </details>
+      <details>
+       <summary>
+        Is ongoing mentoring paid?
+       </summary>
+       <p>
+        Yes. Continued mentorship after the introductory call is paid, with the scope and terms discussed based on your team's needs.
+       </p>
+      </details>
+      <details>
+       <summary>
+        Is financial aid available?
+       </summary>
+       <p>
+        Yes. Financial aid is available for eligible teams. Mention your situation in the request so it can be considered.
+       </p>
+      </details>
+      <details>
+       <summary>
+        Do I have to commit to mentoring after the intro call?
+       </summary>
+       <p>
+        No. The introductory conversation is also a chance for both sides to decide whether working together makes sense.
+       </p>
+      </details>
+      <details>
+       <summary>
+        What if I need help with something other than Conrad Challenge?
+       </summary>
+       <p>
+        This page is specifically for Conrad Challenge mentoring. For other requests, please use the contact section on the main portfolio.
+       </p>
+      </details>
+     </div>
+    </div>
+   </section>
+  </main>
+  <script>
+   const FORM_ENDPOINT =
+    "https://formspree.io/f/xqpzdavw";
+
+const CALENDLY =
+    "https://calendly.com/ibnemahdi5/30min";
+
+const form =
+    document.getElementById("mentoringForm");
+
+const status =
+    document.getElementById("status");
+
+form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const button =
+        form.querySelector("button");
+
+    button.disabled = true;
+    button.textContent = "Sending…";
+    status.textContent = "";
+
+    try {
+        const response = await fetch(
+            FORM_ENDPOINT,
+            {
+                method: "POST",
+                body: new FormData(form),
+                headers: {
+                    Accept: "application/json"
+                }
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error("Request failed");
+        }
+
+        form.reset();
+
+        status.textContent =
+            "Request sent. Opening the booking page…";
+
+        setTimeout(() => {
+            window.location.href = CALENDLY;
+        }, 500);
+
+    } catch (error) {
+        status.textContent =
+            "Something went wrong. Please try again.";
+
+        button.disabled = false;
+        button.textContent =
+            "Send request & continue to booking ↗";
+    }
+});
+  </script>
+ </body>
 </html>
